@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import javax.inject.Inject;
@@ -35,11 +36,13 @@ public class MainActivity extends AppCompatActivity implements MovieViewInterfac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("APP_LOG","Inside onCreate()");
         ((MovieApplication) getApplication()).getApiComponent().inject(MainActivity.this);
         mPresenter = new MoviePresenter(MainActivity.this);
         mPresenter.onCreate();
         ButterKnife.bind(MainActivity.this);
         setupVIew();
+
     }
 
     private void setupVIew() {
