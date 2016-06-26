@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements MovieViewInterfac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("APP_LOG","Inside onCreate()");
         ((MovieApplication) getApplication()).getApiComponent().inject(MainActivity.this);
         mPresenter = new MoviePresenter(MainActivity.this);
         mPresenter.onCreate();
